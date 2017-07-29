@@ -13,10 +13,10 @@ public class PlayerMovment : MonoBehaviour {
     public float luft;
     public float luftLevel;
     public float maxLuft = 100;
-    public float luftIn = 5;
+    public float luftIn = 10;
     public float luftUt = 5;
     public Slider luftUI;
-
+    public PowerMainController controller;
 
 	void Start ()
     {
@@ -43,7 +43,7 @@ public class PlayerMovment : MonoBehaviour {
         {
             if (luftLevel < maxLuft)
             {
-                luftLevel += luftIn*Time.deltaTime;
+                luftLevel += (controller.fanPower/luftIn)*Time.deltaTime;
             }
         }
         if(luft > 0)
