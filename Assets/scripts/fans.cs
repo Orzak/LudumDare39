@@ -11,7 +11,8 @@ public class Fans : MonoBehaviour
 
     private CircleCollider2D cc;
     private UnityEvent onTrigger;
-    private float radius;
+    private bool playerInside = false;
+    private bool hasAir = false;
 
     // Use this for initialization
     void Start()
@@ -21,10 +22,18 @@ public class Fans : MonoBehaviour
 
     void Update()
     {
-        if (controller.fanPower != radius)
+        if(playerInside)
         {
-            radius = controller.fanPower;
-            cc.radius = radius / 5;
+            if (Vector3.Distance(playerluft.transform.position, transform.position) < controller.fanPower/5)
+            {
+                playerluft.luft = -2;
+                hasAir = true;
+            }
+            else if(hasAir)
+            {
+                playerluft.luft = 2;
+                hasAir = false;
+            }
         }
     }
 
@@ -34,6 +43,8 @@ public class Fans : MonoBehaviour
         {
             // onTrigger.Invoke();
             playerluft.luft = 2;
+            playerInside = false;
+            hasAir = false;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -41,7 +52,7 @@ public class Fans : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             // onTrigger.Invoke();
-            playerluft.luft = -2;
+            playerInside = true;
         }
     }
 }

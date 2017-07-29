@@ -18,6 +18,7 @@ public class PlayerMovment : MonoBehaviour {
     public Slider luftUI;
     public PowerMainController controller;
     public GameObject map;
+    public GameObject startUI;
 
 	void Start ()
     {
@@ -64,6 +65,43 @@ public class PlayerMovment : MonoBehaviour {
         }
 
     }
-
-
+    public void hard()
+    {
+        maxLuft = 100;
+        luftIn = 10;
+        luftUt = 5;
+        controller.maxPower = 100000;
+        controller.powerDrainLevel = 10;
+        luftLevel = maxLuft;
+        controller.powerstatus.maxValue = controller.maxPower;
+        controller.powerstatus2.maxValue = controller.maxPower;
+        controller.powerLevel = controller.maxPower;
+        startUI.SetActive(false);
+    }
+    public void Medium()
+    {
+        maxLuft = 100;
+        luftIn = 10;
+        luftUt = 2.5f;
+        controller.maxPower = 500000;
+        controller.powerDrainLevel = 10;
+        luftLevel = maxLuft;
+        controller.powerstatus.maxValue = controller.maxPower;
+        controller.powerstatus2.maxValue = controller.maxPower;
+        controller.powerLevel = controller.maxPower;
+        startUI.SetActive(false);
+    }
+    public void Easy()
+    {
+        maxLuft = 100;
+        luftIn = 15;
+        luftUt = 1.7f;
+        controller.maxPower = 1000000;
+        controller.powerDrainLevel = 10;
+        luftLevel = maxLuft;
+        controller.powerstatus.maxValue = controller.maxPower;
+        controller.powerstatus2.maxValue = controller.maxPower;
+        controller.powerLevel = controller.maxPower;
+        startUI.SetActive(false);
+    }
 }
