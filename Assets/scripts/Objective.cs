@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class Objective : MonoBehaviour {
     public float friendAmount=2;
+    public float genetatorAmount = 1;
     float findFriends;
+    float findGeneratot;
     public GameObject uiText;
     public float time = 0;
     public PowerMainController controller;
@@ -28,6 +30,10 @@ public class Objective : MonoBehaviour {
     {
         findFriends += 1;
     }
+    public void generator()
+    {
+        findGeneratot += 1;
+    }
     public void End()
     {
         StartCoroutine(Slut(time));
@@ -39,13 +45,13 @@ public class Objective : MonoBehaviour {
             uiText.SetActive(true);
             if (text != null)
             {
-                text.text = "Energy Level /n controller.powerLevel /n  Mainers found /n friendAmount/findFriends /n";
+                text.text = string.Format(" Energy Level \n {3}/{2} \n Miners found \n {0}/{1} \n Generators found \n {4}/{5}", friendAmount, findFriends, controller.powerLevel,controller.maxPower, genetatorAmount,findGeneratot);
             }
         }
 
         yield return new WaitForSeconds(time);
 
-
+        uiText.SetActive(false);
 
     }
 
