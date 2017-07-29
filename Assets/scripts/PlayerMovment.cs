@@ -70,7 +70,7 @@ public class PlayerMovment : MonoBehaviour {
         maxLuft = 100;
         luftIn = 10;
         luftUt = 5;
-        controller.maxPower = 100000;
+        controller.maxPower = 1000;
         controller.powerDrainLevel = 10;
         luftLevel = maxLuft;
         controller.powerstatus.maxValue = controller.maxPower;
@@ -83,7 +83,7 @@ public class PlayerMovment : MonoBehaviour {
         maxLuft = 100;
         luftIn = 10;
         luftUt = 2.5f;
-        controller.maxPower = 500000;
+        controller.maxPower = 10000;
         controller.powerDrainLevel = 10;
         luftLevel = maxLuft;
         controller.powerstatus.maxValue = controller.maxPower;
@@ -96,7 +96,7 @@ public class PlayerMovment : MonoBehaviour {
         maxLuft = 100;
         luftIn = 15;
         luftUt = 1.7f;
-        controller.maxPower = 1000000;
+        controller.maxPower = 50000;
         controller.powerDrainLevel = 10;
         luftLevel = maxLuft;
         controller.powerstatus.maxValue = controller.maxPower;
