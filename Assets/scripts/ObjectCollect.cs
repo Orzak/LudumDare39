@@ -6,9 +6,11 @@ using UnityEngine.Events;
 public class ObjectCollect : MonoBehaviour {
 
     public UnityEvent onTrigger;
-    public GameObject ui;
+    public GameObject kill;
     public float time = 0;
-
+    public PowerMainController controller;
+    public float powerGeneration= 5;
+    
     void Start () {
 		
 	}
@@ -21,8 +23,16 @@ public class ObjectCollect : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (controller != null)
+        {
+            controller.powerGeneration += 5;
+
+
+
+        }
+
         onTrigger.Invoke();
-        if (ui != null)
+        if (kill != null)
         {
 
 
@@ -35,6 +45,21 @@ public class ObjectCollect : MonoBehaviour {
     IEnumerator Despawn(float time)
     {
         yield return new WaitForSeconds(time);
-        ui.SetActive(false);
+        kill.SetActive(false);
     }
+
+
+    public void Generate()
+    {
+        StartCoroutine(Move(time));
+    }
+    IEnumerator Move(float time)
+    {
+        transform.position = new Vector3(transform.position.x + 1, transform.position.y + 1, transform.position.z); 
+        yield return new WaitForSeconds(time);
+        transform.position = new Vector3(transform.position.x - 1, transform.position.y - 1, transform.position.z);
+    }
+    
+
 }
+
