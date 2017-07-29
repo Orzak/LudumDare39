@@ -17,6 +17,7 @@ public class PlayerMovment : MonoBehaviour {
     public float luftUt = 5;
     public Slider luftUI;
     public PowerMainController controller;
+    public GameObject map;
 
 	void Start ()
     {
@@ -26,6 +27,14 @@ public class PlayerMovment : MonoBehaviour {
     }
 	
 	void FixedUpdate () {
+        if (Input.GetButton("Fire3"))
+        {
+            map.SetActive(true);
+        }
+        else
+        {
+            map.SetActive(false);
+        }
         Vector2 pos = transform.position;
         Vector2 move = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), moveSpeed * Input.GetAxis("Vertical"));
         rb.velocity = transform.rotation * move;

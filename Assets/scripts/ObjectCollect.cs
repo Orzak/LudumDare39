@@ -55,9 +55,9 @@ public class ObjectCollect : MonoBehaviour {
     }
     IEnumerator Move(float time)
     {
-        transform.position = new Vector3(transform.position.x + 1, transform.position.y + 1, transform.position.z); 
+        transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y + 0.1f, transform.position.z); 
         yield return new WaitForSeconds(time);
-        transform.position = new Vector3(transform.position.x - 1, transform.position.y - 1, transform.position.z);
+        transform.position = new Vector3(transform.position.x - 0.1f, transform.position.y - 0.1f, transform.position.z);
     }
     
 
