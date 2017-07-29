@@ -15,11 +15,16 @@ public class PowerMainController : MonoBehaviour {
     public Slider fanlevel;
     public Slider lamplevel;
     public Slider powerstatus;
+    public Slider powerstatus2;
+
+    public float powerDrainLevel= 10;
 
     // Use this for initialization
     void Start()
     {
         powerstatus.maxValue = maxPower;
+        powerstatus2.maxValue = maxPower;
+        
     }
 
     // Update is called once per frame
@@ -29,7 +34,8 @@ public class PowerMainController : MonoBehaviour {
 
 
         powerstatus.value = powerLevel;
-        float powerdrain = (powerGeneration - (lampPower / 10) - (fanPower / 5)) * Time.deltaTime;
+        powerstatus2.value = powerLevel;
+        float powerdrain = (powerGeneration - (lampPower / powerDrainLevel) - (fanPower / (powerDrainLevel / 2))) * Time.deltaTime;
         powerLevel += powerdrain;
         /*Debug.Log(fanPower);
         Debug.Log(lampPower);

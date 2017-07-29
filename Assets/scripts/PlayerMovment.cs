@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PlayerMovment : MonoBehaviour {
 
@@ -14,6 +15,7 @@ public class PlayerMovment : MonoBehaviour {
     public float maxLuft = 100;
     public float luftIn = 5;
     public float luftUt = 5;
+    public Slider luftUI;
 
 
 	void Start ()
@@ -27,6 +29,8 @@ public class PlayerMovment : MonoBehaviour {
         Vector2 pos = transform.position;
         Vector2 move = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), moveSpeed * Input.GetAxis("Vertical"));
         rb.velocity = transform.rotation * move;
+
+        luftUI.value = luftLevel;
 
         if (animator != null)
         {
