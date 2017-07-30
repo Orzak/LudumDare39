@@ -18,6 +18,7 @@ public class PlayerMovment : MonoBehaviour {
     public float luftUt = 5;
     public Slider luftUI;
     public PowerMainController controller;
+    public UnityEvent onTrigger;
     public GameObject map;
     public GameObject startUI;
     public InputField maxAir;
@@ -28,7 +29,8 @@ public class PlayerMovment : MonoBehaviour {
     public InputField amountEnemy;
     public float enemyAmount;
     public Transform visual;
-
+    public GameObject level2start;
+    
 
 
 	void Start ()
@@ -143,6 +145,21 @@ public class PlayerMovment : MonoBehaviour {
         controller.powerLevel = controller.maxPower;
         enemyAmount = amountEnemyNum;
         startUI.SetActive(false);
+
+        
+
+    }
+    public void levelstart (){
+        luftLevel = maxLuft;
+        controller.powerstatus.maxValue = controller.maxPower;
+        controller.powerstatus2.maxValue = controller.maxPower;
+        controller.powerLevel = controller.maxPower;
+        onTrigger.Invoke();
+    }
+    public void start2pos()
+    {
+        //rb.MovePosition(level2start.transform.position);
+        transform.position = level2start.transform.position;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

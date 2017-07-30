@@ -35,7 +35,7 @@ public class PowerMainController : MonoBehaviour {
 
         powerstatus.value = powerLevel;
         powerstatus2.value = powerLevel;
-        float powerdrain = (powerGeneration - (lampPower / powerDrainLevel) - (fanPower / (powerDrainLevel / 2))) * Time.deltaTime;
+        float powerdrain = (powerGeneration - (lampPower / powerDrainLevel/4) - (fanPower / (powerDrainLevel/2))) * Time.deltaTime;
         powerLevel += powerdrain;
         /*Debug.Log(fanPower);
         Debug.Log(lampPower);

@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
         {
             Vector2 dir = (-(Vector2)lamps[i].position + (Vector2)transform.position);
             float distans = dir.magnitude;
-            if (distans < (controller.lampPower / 4) && distans < minD)
+            if (distans < (controller.lampPower / 6.6) && distans < minD)
             {
                 currentSpeed = runSpeed;
                 cooldown = 0;

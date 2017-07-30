@@ -9,7 +9,9 @@ public class Fans : MonoBehaviour
     public PowerMainController controller;
     public PlayerMovment playerluft;
 
-    
+    public GameObject kill;
+
+    public AudioSource aS;
     private UnityEvent onTrigger;
     private bool playerInside = false;
     private bool hasAir = false;
@@ -17,14 +19,22 @@ public class Fans : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
     }
 
     void Update()
     {
+        if (controller.powerLevel< 0)
+        {
+            playerluft.luft = -2;
+            hasAir = false;
+            kill.SetActive(false);
+
+
+        }
         if(playerInside)
         {
-            if (Vector3.Distance(playerluft.transform.position, transform.position) < controller.fanPower/ (controller.powerDrainLevel / 2))
+            aS.maxDistance = (controller.fanPower / (controller.powerDrainLevel / 2));
+            if (Vector3.Distance(playerluft.transform.position, transform.position) < controller.fanPower/ (controller.powerDrainLevel/2))
             {
                 playerluft.luft = -2;
                 hasAir = true;

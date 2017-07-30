@@ -23,30 +23,39 @@ public class ObjectCollect : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (controller != null)
+        if (controller != null && collision.gameObject.tag == "Player")
         {
-            controller.powerGeneration += 5;
+            controller.powerGeneration += powerGeneration;
+            onTrigger.Invoke();
+            Generate();
 
 
 
         }
-        if (collision.gameObject.tag == "Player")
+        if (kill == null && collision.gameObject.tag == "Player")
         {
             onTrigger.Invoke();
         }
-        if (kill != null)
+        if (kill != null && collision.gameObject.tag == "Player") 
         {
+            string on = collision.gameObject.tag; 
 
 
-            
-            StartCoroutine(Despawn(time));
+
+            StartCoroutine(Despawn(time,on));
 
         }
     }
 
-    IEnumerator Despawn(float time)
+    IEnumerator Despawn(float time,string on)
     {
         yield return new WaitForSeconds(time);
+
+    
+        if (on == "Player")
+        {
+            onTrigger.Invoke();
+        }
         kill.SetActive(false);
     }
 
