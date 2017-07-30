@@ -27,4 +27,6 @@ public class lightpoint : MonoBehaviour
             cc.range = radius / powerTORange;
         }
     }
+
+
 }

@@ -19,6 +19,15 @@ public class PlayerMovment : MonoBehaviour {
     public PowerMainController controller;
     public GameObject map;
     public GameObject startUI;
+    public InputField maxAir;
+    public InputField airIn;
+    public InputField airOut;
+    public InputField powerDrain;
+    public InputField maxPower;
+    public InputField amountEnemy;
+    public float enemyAmount;
+
+
 
 	void Start ()
     {
@@ -76,6 +85,7 @@ public class PlayerMovment : MonoBehaviour {
         controller.powerstatus.maxValue = controller.maxPower;
         controller.powerstatus2.maxValue = controller.maxPower;
         controller.powerLevel = controller.maxPower;
+        enemyAmount = 3;
         startUI.SetActive(false);
     }
     public void Medium()
@@ -89,6 +99,7 @@ public class PlayerMovment : MonoBehaviour {
         controller.powerstatus.maxValue = controller.maxPower;
         controller.powerstatus2.maxValue = controller.maxPower;
         controller.powerLevel = controller.maxPower;
+        enemyAmount = 2;
         startUI.SetActive(false);
     }
     public void Easy()
@@ -102,6 +113,29 @@ public class PlayerMovment : MonoBehaviour {
         controller.powerstatus.maxValue = controller.maxPower;
         controller.powerstatus2.maxValue = controller.maxPower;
         controller.powerLevel = controller.maxPower;
+        enemyAmount = 1;
         startUI.SetActive(false);
     }
+
+    public void start()
+    {
+        float maxPowerNum = float.Parse(maxPower.text);
+        float maxAirNum = float.Parse(maxAir.text);
+        float airInNum = float.Parse(airIn.text);
+        float airOutNum = float.Parse(airOut.text);
+        float powerDrainNum = float.Parse(powerDrain.text);
+        float amountEnemyNum = float.Parse(amountEnemy.text);
+        maxLuft = maxAirNum;
+        luftIn = airInNum;
+        luftUt = airOutNum;
+        luftLevel = maxLuft;
+        controller.maxPower = maxPowerNum;
+        controller.powerDrainLevel = powerDrainNum;
+        controller.powerstatus.maxValue = controller.maxPower;
+        controller.powerstatus2.maxValue = controller.maxPower;
+        controller.powerLevel = controller.maxPower;
+        enemyAmount = amountEnemyNum;
+        startUI.SetActive(false);
+    }
+
 }
