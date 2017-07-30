@@ -9,7 +9,7 @@ public class Fans : MonoBehaviour
     public PowerMainController controller;
     public PlayerMovment playerluft;
 
-    private CircleCollider2D cc;
+    
     private UnityEvent onTrigger;
     private bool playerInside = false;
     private bool hasAir = false;
@@ -17,14 +17,14 @@ public class Fans : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        cc = GetComponent<CircleCollider2D>();
+        
     }
 
     void Update()
     {
         if(playerInside)
         {
-            if (Vector3.Distance(playerluft.transform.position, transform.position) < controller.fanPower/5)
+            if (Vector3.Distance(playerluft.transform.position, transform.position) < controller.fanPower/ (controller.powerDrainLevel / 2))
             {
                 playerluft.luft = -2;
                 hasAir = true;

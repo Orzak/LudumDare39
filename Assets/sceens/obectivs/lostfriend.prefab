@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1803882908275080}
   m_LocalRotation: {x: 0, y: 0, z: 0.6159365, w: 0.78779584}
-  m_LocalPosition: {x: -151.9, y: -181.16, z: 0}
+  m_LocalPosition: {x: 56.19, y: 16.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4964386325905274}
@@ -114,8 +114,8 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  ui: {fileID: 1803882908275080}
-  time: 5
+  kill: {fileID: 0}
+  time: 2
   controller: {fileID: 0}
   powerGeneration: 5
 --- !u!212 &212504726146825322

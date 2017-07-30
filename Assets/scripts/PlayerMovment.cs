@@ -10,6 +10,7 @@ public class PlayerMovment : MonoBehaviour {
     public float moveSpeed = 5;
     Animator animator;
     private Rigidbody2D rb;
+    public float luftSkada = 10;
     public float luft;
     public float luftLevel;
     public float maxLuft = 100;
@@ -26,13 +27,14 @@ public class PlayerMovment : MonoBehaviour {
     public InputField maxPower;
     public InputField amountEnemy;
     public float enemyAmount;
+    public Transform visual;
 
 
 
 	void Start ()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        animator = visual.GetComponent<Animator>();
         luftLevel = maxLuft;
     }
 	
@@ -45,9 +47,14 @@ public class PlayerMovment : MonoBehaviour {
         {
             map.SetActive(false);
         }
-        Vector2 pos = transform.position;
         Vector2 move = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), moveSpeed * Input.GetAxis("Vertical"));
-        rb.velocity = transform.rotation * move;
+        rb.velocity = move;
+        if (move.sqrMagnitude > 0.01f)
+        {
+            visual.rotation = Quaternion.RotateTowards(visual.rotation, Quaternion.LookRotation(Vector3.forward, move.normalized), 360*Time.deltaTime);
+            //float angle = Mathf.Atan2(move.y, move.x) * Mathf.Rad2Deg - 90;
+            //rb.angularVelocity = Mathf.Clamp(angle * 5, -360, 360);
+        }
 
         luftUI.value = luftLevel;
 
@@ -137,5 +144,11 @@ public class PlayerMovment : MonoBehaviour {
         enemyAmount = amountEnemyNum;
         startUI.SetActive(false);
     }
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "enemy")
+        {
+            luftLevel -= luftSkada;
+        }
+    }
 }

@@ -30,8 +30,10 @@ public class ObjectCollect : MonoBehaviour {
 
 
         }
-
-        onTrigger.Invoke();
+        if (collision.gameObject.tag == "Player")
+        {
+            onTrigger.Invoke();
+        }
         if (kill != null)
         {
 
@@ -55,11 +57,13 @@ public class ObjectCollect : MonoBehaviour {
     }
     IEnumerator Move(float time)
     {
-        transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y + 0.1f, transform.position.z); 
-        yield return new WaitForSeconds(time);
-        transform.position = new Vector3(transform.position.x - 0.1f, transform.position.y - 0.1f, transform.position.z);
+        while (true)
+        {
+            transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y + 0.1f, transform.position.z);
+            yield return new WaitForSeconds(time);
+            transform.position = new Vector3(transform.position.x - 0.1f, transform.position.y - 0.1f, transform.position.z);
+        }
     }
-    
 
 }
 

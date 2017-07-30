@@ -11,16 +11,16 @@ public class EnemySpawner : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        while(pM.enemyAmount > 0)
-        {
-            pM.enemyAmount -= 1;
-            Spawnenemy();
-        }
+       
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		 if(pM.enemyAmount > 0)
+        {
+            pM.enemyAmount -= 1;
+            Spawnenemy();
+        }
 	}
     public void Spawnenemy()
     {
