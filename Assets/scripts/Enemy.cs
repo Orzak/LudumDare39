@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     public float time = 3;
     public float runSpeed = 5;
     public GameObject player;
-
+    private AudioSource aS;
 
     bool playerInRange = true;
     private Rigidbody2D rb;
@@ -65,6 +65,7 @@ public class Enemy : MonoBehaviour
             {
                 target = (Vector2)player.transform.position;
                 currentSpeed = runSpeed;
+                
             }
             else
             {
