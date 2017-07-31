@@ -25,7 +25,7 @@ public class Fans : MonoBehaviour
     {
         if (controller.powerLevel< 0)
         {
-            playerluft.luft = -2;
+            playerluft.luft = 2;
             hasAir = false;
             kill.SetActive(false);
 
