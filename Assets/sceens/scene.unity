@@ -747,6 +747,16 @@ Prefab:
       propertyPath: kill
       value: 
       objectReference: {fileID: 1156726918}
+    - target: {fileID: 114376756404571606, guid: 63fa833832ec2d446a28c7791b122c7b,
+        type: 2}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1220024113}
+    - target: {fileID: 114376756404571606, guid: 63fa833832ec2d446a28c7791b122c7b,
+        type: 2}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DeadFriend
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63fa833832ec2d446a28c7791b122c7b, type: 2}
   m_IsPrefabParent: 0
@@ -1431,12 +1441,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4520534692712838, guid: ad9095079133d014cb3f1fb8ce2432d4,
     type: 2}
   m_PrefabInternal: {fileID: 802577491}
---- !u!114 &88523763 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114985928817561198, guid: ad9095079133d014cb3f1fb8ce2432d4,
-    type: 2}
-  m_PrefabInternal: {fileID: 802577491}
-  m_Script: {fileID: 11500000, guid: 3b7094177c6b15c4295c4894fb53f50c, type: 3}
 --- !u!4 &97482749 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4106330578307392, guid: 554bd98edda063d499d750599fcd1f76,
@@ -4997,11 +5001,11 @@ Prefab:
         type: 2}
       propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1922041321}
+      objectReference: {fileID: 1220024113}
     - target: {fileID: 114985928817561198, guid: ad9095079133d014cb3f1fb8ce2432d4,
         type: 2}
       propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Generate
+      value: generator
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad9095079133d014cb3f1fb8ce2432d4, type: 2}
@@ -5797,6 +5801,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1220024114}
     m_Modifications:
+    - target: {fileID: 114418251124636524, guid: 5dfbe18ab9e3c9546b2a16892db1be66,
+        type: 2}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4908799536178452, guid: 5dfbe18ab9e3c9546b2a16892db1be66, type: 2}
       propertyPath: m_LocalPosition.x
       value: 28.17
@@ -5839,6 +5848,26 @@ Prefab:
       propertyPath: kill
       value: 
       objectReference: {fileID: 931039502}
+    - target: {fileID: 114418251124636524, guid: 5dfbe18ab9e3c9546b2a16892db1be66,
+        type: 2}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: lostFriend
+      objectReference: {fileID: 0}
+    - target: {fileID: 114418251124636524, guid: 5dfbe18ab9e3c9546b2a16892db1be66,
+        type: 2}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114418251124636524, guid: 5dfbe18ab9e3c9546b2a16892db1be66,
+        type: 2}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114418251124636524, guid: 5dfbe18ab9e3c9546b2a16892db1be66,
+        type: 2}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5dfbe18ab9e3c9546b2a16892db1be66, type: 2}
   m_IsPrefabParent: 0
@@ -6530,6 +6559,11 @@ Prefab:
     - target: {fileID: 1045388792460892, guid: ad9095079133d014cb3f1fb8ce2432d4, type: 2}
       propertyPath: m_Name
       value: generator (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114985928817561198, guid: ad9095079133d014cb3f1fb8ce2432d4,
+        type: 2}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: generator
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad9095079133d014cb3f1fb8ce2432d4, type: 2}
@@ -12525,11 +12559,11 @@ Prefab:
         type: 2}
       propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 88523763}
+      objectReference: {fileID: 1220024113}
     - target: {fileID: 114985928817561198, guid: ad9095079133d014cb3f1fb8ce2432d4,
         type: 2}
       propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Generate
+      value: generator
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad9095079133d014cb3f1fb8ce2432d4, type: 2}
@@ -30099,12 +30133,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4520534692712838, guid: ad9095079133d014cb3f1fb8ce2432d4,
     type: 2}
   m_PrefabInternal: {fileID: 336888597}
---- !u!114 &1922041321 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114985928817561198, guid: ad9095079133d014cb3f1fb8ce2432d4,
-    type: 2}
-  m_PrefabInternal: {fileID: 336888597}
-  m_Script: {fileID: 11500000, guid: 3b7094177c6b15c4295c4894fb53f50c, type: 3}
 --- !u!1001 &1923746006
 Prefab:
   m_ObjectHideFlags: 0

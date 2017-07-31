@@ -27,7 +27,7 @@ public class ObjectCollect : MonoBehaviour {
         if (controller != null && collision.gameObject.tag == "Player")
         {
             controller.powerGeneration += powerGeneration;
-            onTrigger.Invoke();
+            
             Generate();
 
 
@@ -66,7 +66,7 @@ public class ObjectCollect : MonoBehaviour {
         
         if (point == 0) {
             StartCoroutine(Move(time));
-            onTrigger.Invoke();
+            
             point = 1;
         }
     }
@@ -74,9 +74,9 @@ public class ObjectCollect : MonoBehaviour {
     {
         while (true)
         {
-            transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y + 0.1f, transform.position.z);
+            transform.position = new Vector3(transform.position.x + 0.2f, transform.position.y + 0.2f, transform.position.z);
             yield return new WaitForSeconds(time);
-            transform.position = new Vector3(transform.position.x - 0.1f, transform.position.y - 0.1f, transform.position.z);
+            transform.position = new Vector3(transform.position.x - 0.2f, transform.position.y - 0.2f, transform.position.z);
         }
     }
 
