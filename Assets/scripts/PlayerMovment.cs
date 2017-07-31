@@ -30,6 +30,7 @@ public class PlayerMovment : MonoBehaviour {
     public float enemyAmount;
     public Transform visual;
     public GameObject level2start;
+    private Camera mapCamera;
     
 
 
@@ -38,6 +39,7 @@ public class PlayerMovment : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         animator = visual.GetComponent<Animator>();
         luftLevel = maxLuft;
+        mapCamera = GetComponentInChildren<Camera>();
     }
 	
 	void FixedUpdate () {
@@ -160,6 +162,7 @@ public class PlayerMovment : MonoBehaviour {
     {
         //rb.MovePosition(level2start.transform.position);
         transform.position = level2start.transform.position;
+        mapCamera.orthographicSize = 50;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
