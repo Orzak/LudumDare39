@@ -10,7 +10,8 @@ public class ObjectCollect : MonoBehaviour {
     public float time = 0;
     public PowerMainController controller;
     public float powerGeneration= 5;
-    
+    float point = 0;
+
     void Start () {
 		
 	}
@@ -62,7 +63,12 @@ public class ObjectCollect : MonoBehaviour {
 
     public void Generate()
     {
-        StartCoroutine(Move(time));
+        
+        if (point == 0) {
+            StartCoroutine(Move(time));
+            onTrigger.Invoke();
+            point = 1;
+        }
     }
     IEnumerator Move(float time)
     {

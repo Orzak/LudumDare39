@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
         currentSpeed = moveSpeed;
         rb = GetComponent<Rigidbody2D>();
         lamps = new List<Transform>();
+        aS = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -118,6 +119,8 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             playerInRange = true;
+
+            aS.Play();
 
         }
     }
